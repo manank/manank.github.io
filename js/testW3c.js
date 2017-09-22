@@ -163,11 +163,11 @@ if(window.PaymentRequest) {
 			.then(function(success){
 				console.log("Chrome happy flow is done!");
 				console.log(success);
-				checkoutInfoResp = document.createTextNode("The checkout is done successfully" + success);
+				checkoutInfoResp = document.createTextNode(success);
 				makePaymentArea.appendChild(checkoutInfoResp);
 			})
 			.catch(function(error) {
-				checkoutInfoResp = document.createTextNode("The checkout is not successful" + error);
+				checkoutInfoResp = document.createTextNode(error);
 				makePaymentArea.appendChild(checkoutInfoResp);
 			});
 		}
