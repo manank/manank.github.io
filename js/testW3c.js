@@ -38,7 +38,7 @@ if(window.PaymentRequest) {
 
 		//var VisaPaymentAdapter = window.vAdapters.samsungPay.VisaPaymentAdapter;
 		//var spayVisaPayment = new VisaPaymentAdapter(paymentInitParams);
-		const metaJsonUrl = "https://ecomm.mpay.samsung.com/ew/v1/vco/w3c";
+		const metaJsonUrl = "https://ecomm.stg.mpay.samsung.com/ew/v1/vco/w3c";
 		var paymentReqData = {
 			checkoutPartner: "VisaCheckout",
 			requestPayload: {
