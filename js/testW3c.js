@@ -152,7 +152,7 @@ if(window.PaymentRequest) {
 			var methodDataLaunch = [
 				{
 					supportedMethods: [metaJsonUrl],
-					data: paymentReqData
+					data: paymentReqDataLaunch
 				}
 			];
 
