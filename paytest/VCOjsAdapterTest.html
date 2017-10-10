@@ -50,6 +50,7 @@
 	<div id="responseJson"></div>
 	<div id="makePayment"> </div>
 	<script src="https://ecomm.stg.mpay.samsung.com/ew/v1/vco/js/spayVisaPaymentAdapter.js"></script>
+	<script src="https://payments.google.com/payments/apis/instantbuy/serving/pr/js/vco.js"></script>
 	<script>
 	   	var selected = localStorage.getItem('selected');
 
@@ -114,8 +115,12 @@
 							      };
 		console.log("the paymentInitParams is ");
 		console.log(paymentInitParams);
-		var VisaPaymentAdapter = window.vAdapters.samsungPay.VisaPaymentAdapter;
-		var spayVisaPayment = new VisaPaymentAdapter(paymentInitParams);
+		var aVisaPaymentAdapter = window.vAdapters.com.google.androidPay.VisaPaymentAdapter;
+		var sVisaPaymentAdapter = window.vAdapters.samsungPay.VisaPaymentAdapter;
+
+		var apayVisaPayment = new aVisaPaymentAdapter(paymentInitParams);
+		var spayVisaPayment = new sVisaPaymentAdapter(paymentInitParams);
+
 		console.log("the spayVisaPayment object is ")
 		console.log(spayVisaPayment);
 
@@ -139,8 +144,6 @@
 		var walletArea = document.getElementById("responseJson");
 		walletArea.appendChild(sBrwoserText);
 
-
-
 		var getWalletInfoBtn = document.createElement("button");
 		var walletInfoBtnText = document.createTextNode("Click to get wallet info");
 		getWalletInfoBtn.appendChild(walletInfoBtnText);
@@ -157,6 +160,14 @@
 			if(payBtn) {
 				makePaymentArea.removeChild(payBtn);
 			}
+			
+			apayVisaPayment.getWalletInfo().then(function(result) {
+				console.log("test the result here in mock visa code");
+				console.log(result);
+			}).catch(function(error){
+				console.log(error);
+			})
+
 			spayVisaPayment.getWalletInfo().then(function(result) {
 				console.log("test the result here in mock visa code");
 				console.log(result);
